@@ -1,16 +1,5 @@
 import { createServer } from 'http';
 
-const express = require('express');
-const app = express();
-const morgan = require('morgan');
-var cors = require('cors');
-//Midlewares
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());    
-app.use(cors());
-
-
 const value = [
   {
       "x": 2003, 
