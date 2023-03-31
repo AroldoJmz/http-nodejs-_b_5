@@ -43,6 +43,6 @@ const value = [
 ];
 
 createServer((req, res) => {
-  res.json(value);
+  res.write(value);
   res.end();
 }).listen(process.env.PORT);
