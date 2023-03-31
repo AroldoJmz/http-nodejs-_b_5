@@ -1,5 +1,15 @@
 import { createServer } from 'http';
 
+const express = require('express');
+const app = express();
+const morgan = require('morgan');
+var cors = require('cors')
+//Midlewares
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());    
+app.use(cors());
+
 const value = [
   {
       "x": 2003, 
@@ -31,7 +41,13 @@ const value = [
   }
 ];
 
-createServer((req, res) => {
-  res.write('Hola Mundo');
-  res.end();
-}).listen(process.env.PORT);
+//GET
+app.get('/', (req, res) => {    
+  res.json(value);
+});
+
+
+//Start Server
+app.listen(3000,() => {
+  console.log(`Server on port ${3000}`);
+});
